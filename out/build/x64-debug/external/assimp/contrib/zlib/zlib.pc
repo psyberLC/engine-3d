@@ -1,0 +1,13 @@
+prefix=C:/Users/sesa768246/to_github/engine-3d/out/install/x64-debug
+exec_prefix=C:/Users/sesa768246/to_github/engine-3d/out/install/x64-debug
+libdir=
+sharedlibdir=
+includedir=
+
+Name: zlib
+Description: zlib compression library
+Version: 
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
