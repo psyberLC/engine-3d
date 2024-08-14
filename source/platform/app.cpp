@@ -1,28 +1,23 @@
 #include <app.h>
 
-const int APP_WIDTH = 800;
-const int APP_HEIGHT = 600;
+const float APP_WIDTH = 800.0;
+const float APP_HEIGHT = 600.0;
 
-float deltaTime = 0.0f;
-float lastFrame = 0.0f;
+static float deltaTime = 0.0f;
+static float lastFrame = 0.0f;
 
-bool firstMouse = true;
-float yaw = -90.0f;
-float pitch = 0.0f;
-float lastX = 800.0f / 2.0;
-float lastY = 600.0 / 2.0;
-
-glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+float speed = 10.0f;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow* window);
-void processControls(GLFWwindow* window);
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
+
+Spectator spectator;
 
 int main()
 {
+
+#pragma region init
 
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -44,8 +39,13 @@ int main()
 	}
 
 	glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
+
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetCursorPosCallback(window, mouse_callback);
+
+#pragma endregion
+
+#pragma region objects
 
 	unsigned int indices[] = {
         //Top
@@ -114,6 +114,10 @@ int main()
 		i++;
 	}
 
+#pragma endregion
+
+#pragma region VAO setup
+
 	unsigned int VBO, instanceVBO, VAO, EBO;
 
 	glGenBuffers(1, &VBO);
@@ -151,6 +155,10 @@ int main()
 
 	glBindVertexArray(0);
 
+#pragma endregion
+
+#pragma region textures
+
 	unsigned int texture;
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
@@ -179,13 +187,25 @@ int main()
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
+#pragma endregion
+
+#pragma region shaders
+
 	Shader shaders("C:/Users/sesa768246/to_github/engine-3d/resources/shaders/vertexShader.vert",
 				   "C:/Users/sesa768246/to_github/engine-3d/resources/shaders/fragmentShader.frag");
+
+#pragma endregion
+
+#pragma region opengl features
 
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+#pragma endregion
+
+#pragma region main loop
 
 	while (!glfwWindowShouldClose(window)) {
 
@@ -193,8 +213,7 @@ int main()
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
-		processInput(window);
-		processControls(window);
+		processInput(window, spectator.cameraPosition, spectator.cameraFront, spectator.cameraUp, speed, deltaTime);
 
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -206,8 +225,8 @@ int main()
 		glm::mat4 view = glm::mat4(1.0f);
 		glm::mat4 projection = glm::mat4(1.0f);
 
-		view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
-		projection = glm::perspective(glm::radians(75.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+		view = glm::lookAt(spectator.cameraPosition, spectator.cameraPosition + spectator.cameraFront, spectator.cameraUp);
+		projection = glm::perspective(glm::radians(spectator.fov), APP_WIDTH / APP_HEIGHT, 0.1f, 100.0f);
 
 		unsigned int modelLocation = glGetUniformLocation(shaders.ID, "model");
 		unsigned int viewLocation = glGetUniformLocation(shaders.ID, "view");
@@ -228,70 +247,31 @@ int main()
 		glfwPollEvents();
 	}
 
+#pragma endregion
+
+#pragma region cleaning
+
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
 	glDeleteBuffers(1, &instanceVBO);
 	glDeleteBuffers(1, &EBO);
 
+#pragma endregion
+
 	glfwTerminate();
 	return 0;
 }
+
+#pragma region callbacks
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
 }
 
-void processControls(GLFWwindow* window)
-{
-	const float cameraSpeed = 10.0f * deltaTime;
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		cameraPos += cameraSpeed * cameraFront;
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		cameraPos -= cameraSpeed * cameraFront;
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-
-	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-		cameraPos += cameraUp * cameraSpeed;
-	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
-		cameraPos -= cameraUp * cameraSpeed;
-}
-
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 {
-	float xpos = static_cast<float>(xposIn);
-	float ypos = static_cast<float>(yposIn);
-
-	if (firstMouse)
-	{
-		lastX = xpos;
-		lastY = ypos;
-		firstMouse = false;
-	}
-
-	float xoffset = xpos - lastX;
-	float yoffset = lastY - ypos;
-	lastX = xpos;
-	lastY = ypos;
-
-	float sensitivity = 0.5f;
-	xoffset *= sensitivity;
-	yoffset *= sensitivity;
-
-	yaw += xoffset;
-	pitch += yoffset;
-
-	if (pitch > 89.0f)
-		pitch = 89.0f;
-	if (pitch < -89.0f)
-		pitch = -89.0f;
-
-	glm::vec3 front;
-	front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-	front.y = sin(glm::radians(pitch));
-	front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-	cameraFront = glm::normalize(front);
+    spectator.processCursor(xposIn, yposIn);
 }
+
+#pragma endregion

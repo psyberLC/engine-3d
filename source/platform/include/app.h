@@ -14,6 +14,6 @@
 #include <shader_loader.h>
 #include <model_loader.h>
 #include <process_input.h>
-#include <camera.h>
+#include <spectator.h>
 
 #endif
