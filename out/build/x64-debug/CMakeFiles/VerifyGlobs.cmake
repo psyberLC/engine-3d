@@ -9,7 +9,7 @@ set(OLD_GLOB
   "C:/Users/sesa768246/to_github/engine-3d/source/core/shader_loader.cpp"
   "C:/Users/sesa768246/to_github/engine-3d/source/core/spectator.cpp"
   "C:/Users/sesa768246/to_github/engine-3d/source/platform/app.cpp"
-  "C:/Users/sesa768246/to_github/engine-3d/source/platform/process_input.cpp"
+  "C:/Users/sesa768246/to_github/engine-3d/source/platform/process_keys.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

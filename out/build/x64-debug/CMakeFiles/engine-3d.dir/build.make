@@ -128,20 +128,20 @@ CMakeFiles/engine-3d.dir/source/platform/app.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine-3d.dir/source/platform/app.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\sesa768246\to_github\engine-3d\source\platform\app.cpp -o CMakeFiles\engine-3d.dir\source\platform\app.cpp.s
 
-CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj: CMakeFiles/engine-3d.dir/flags.make
-CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj: CMakeFiles/engine-3d.dir/includes_CXX.rsp
-CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj: C:/Users/sesa768246/to_github/engine-3d/source/platform/process_input.cpp
-CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj: CMakeFiles/engine-3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\sesa768246\to_github\engine-3d\out\build\x64-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj -MF CMakeFiles\engine-3d.dir\source\platform\process_input.cpp.obj.d -o CMakeFiles\engine-3d.dir\source\platform\process_input.cpp.obj -c C:\Users\sesa768246\to_github\engine-3d\source\platform\process_input.cpp
+CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj: CMakeFiles/engine-3d.dir/flags.make
+CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj: CMakeFiles/engine-3d.dir/includes_CXX.rsp
+CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj: C:/Users/sesa768246/to_github/engine-3d/source/platform/process_keys.cpp
+CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj: CMakeFiles/engine-3d.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\sesa768246\to_github\engine-3d\out\build\x64-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj -MF CMakeFiles\engine-3d.dir\source\platform\process_keys.cpp.obj.d -o CMakeFiles\engine-3d.dir\source\platform\process_keys.cpp.obj -c C:\Users\sesa768246\to_github\engine-3d\source\platform\process_keys.cpp
 
-CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\sesa768246\to_github\engine-3d\source\platform\process_input.cpp > CMakeFiles\engine-3d.dir\source\platform\process_input.cpp.i
+CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\sesa768246\to_github\engine-3d\source\platform\process_keys.cpp > CMakeFiles\engine-3d.dir\source\platform\process_keys.cpp.i
 
-CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\sesa768246\to_github\engine-3d\source\platform\process_input.cpp -o CMakeFiles\engine-3d.dir\source\platform\process_input.cpp.s
+CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\sesa768246\to_github\engine-3d\source\platform\process_keys.cpp -o CMakeFiles\engine-3d.dir\source\platform\process_keys.cpp.s
 
 # Object files for target engine-3d
 engine__3d_OBJECTS = \
@@ -149,7 +149,7 @@ engine__3d_OBJECTS = \
 "CMakeFiles/engine-3d.dir/source/core/shader_loader.cpp.obj" \
 "CMakeFiles/engine-3d.dir/source/core/spectator.cpp.obj" \
 "CMakeFiles/engine-3d.dir/source/platform/app.cpp.obj" \
-"CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj"
+"CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj"
 
 # External object files for target engine-3d
 engine__3d_EXTERNAL_OBJECTS =
@@ -158,11 +158,12 @@ engine-3d.exe: CMakeFiles/engine-3d.dir/source/core/model_loader.cpp.obj
 engine-3d.exe: CMakeFiles/engine-3d.dir/source/core/shader_loader.cpp.obj
 engine-3d.exe: CMakeFiles/engine-3d.dir/source/core/spectator.cpp.obj
 engine-3d.exe: CMakeFiles/engine-3d.dir/source/platform/app.cpp.obj
-engine-3d.exe: CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj
+engine-3d.exe: CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj
 engine-3d.exe: CMakeFiles/engine-3d.dir/build.make
 engine-3d.exe: external/glfw-3.4/src/libglfw3.a
 engine-3d.exe: external/glad/libglad.a
 engine-3d.exe: external/stb_image/libstb_image.a
+engine-3d.exe: external/tinygltf-2.9.3/libtinygltf.a
 engine-3d.exe: CMakeFiles/engine-3d.dir/linkLibs.rsp
 engine-3d.exe: CMakeFiles/engine-3d.dir/objects1.rsp
 engine-3d.exe: CMakeFiles/engine-3d.dir/link.txt

@@ -5,7 +5,7 @@ in vec3 vertexColor;
 in vec3 TexCoord;
 
 uniform samplerCube cubemap;
-uniform float Time;
+uniform float time;
 
 void main()
 {

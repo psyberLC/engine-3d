@@ -1,0 +1,105 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"INSTALL"
+		],
+		"files" : 
+		[
+			"external/tinygltf-2.9.3/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 63,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 64,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 66,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 69,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"external/tinygltf-2.9.3/libtinygltf.a"
+			],
+			"targetId" : "tinygltf::@41fabb658c978359afa0",
+			"targetIndex" : 5,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake",
+			"exportName" : "tinygltfTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "tinygltf::@41fabb658c978359afa0",
+					"index" : 5
+				}
+			],
+			"paths" : 
+			[
+				"external/tinygltf-2.9.3/CMakeFiles/Export/c220ae0af1591e9e9e916bba91f25986/TinyGLTFTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake",
+			"paths" : 
+			[
+				"out/build/x64-debug/external/tinygltf-2.9.3/TinyGLTFConfig.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"external/tinygltf-2.9.3/json.hpp",
+				"external/tinygltf-2.9.3/stb_image.h",
+				"external/tinygltf-2.9.3/stb_image_write.h",
+				"external/tinygltf-2.9.3/tiny_gltf.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "external/tinygltf-2.9.3",
+		"source" : "external/tinygltf-2.9.3"
+	}
+}

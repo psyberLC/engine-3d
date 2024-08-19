@@ -339,6 +339,26 @@ GLFW_SOURCE_DIR:STATIC=C:/Users/sesa768246/to_github/engine-3d/external/glfw-3.4
 //Force use of high-performance GPU on hybrid systems
 GLFW_USE_HYBRID_HPG:BOOL=OFF
 
+//Build glTF builder example
+TINYGLTF_BUILD_BUILDER_EXAMPLE:BOOL=OFF
+
+//Build GL exampels(requires glfw, OpenGL, etc)
+TINYGLTF_BUILD_GL_EXAMPLES:BOOL=OFF
+
+//Build loader_example(load glTF and dump infos)
+TINYGLTF_BUILD_LOADER_EXAMPLE:BOOL=ON
+
+//Build validator exampe
+TINYGLTF_BUILD_VALIDATOR_EXAMPLE:BOOL=OFF
+
+//On: header-only mode. Off: create tinygltf library(No TINYGLTF_IMPLEMENTATION
+// required in your project)
+TINYGLTF_HEADER_ONLY:BOOL=OFF
+
+//Install tinygltf files during install step. Usually set to OFF
+// if you include tinygltf through add_subdirectory()
+TINYGLTF_INSTALL:BOOL=ON
+
 //Value Computed by CMake
 engine-3d_BINARY_DIR:STATIC=C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug
 
@@ -365,6 +385,15 @@ stb_image_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 stb_image_SOURCE_DIR:STATIC=C:/Users/sesa768246/to_github/engine-3d/external/stb_image
+
+//Value Computed by CMake
+tinygltf_BINARY_DIR:STATIC=C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3
+
+//Value Computed by CMake
+tinygltf_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+tinygltf_SOURCE_DIR:STATIC=C:/Users/sesa768246/to_github/engine-3d/external/tinygltf-2.9.3
 
 
 ########################
@@ -507,7 +536,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

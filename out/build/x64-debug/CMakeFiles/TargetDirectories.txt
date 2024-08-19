@@ -46,3 +46,11 @@ C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/stb_image/C
 C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/stb_image/CMakeFiles/install.dir
 C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/stb_image/CMakeFiles/install/local.dir
 C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/stb_image/CMakeFiles/install/strip.dir
+C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/CMakeFiles/loader_example.dir
+C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/CMakeFiles/tinygltf.dir
+C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/CMakeFiles/edit_cache.dir
+C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/CMakeFiles/rebuild_cache.dir
+C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/CMakeFiles/list_install_components.dir
+C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/CMakeFiles/install.dir
+C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/CMakeFiles/install/local.dir
+C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/CMakeFiles/install/strip.dir

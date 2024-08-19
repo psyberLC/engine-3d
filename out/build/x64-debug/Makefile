@@ -239,6 +239,32 @@ stb_image/fast:
 	$(MAKE) $(MAKESILENT) -f external\stb_image\CMakeFiles\stb_image.dir\build.make external/stb_image/CMakeFiles/stb_image.dir/build
 .PHONY : stb_image/fast
 
+#=============================================================================
+# Target rules for targets named loader_example
+
+# Build rule for target.
+loader_example: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 loader_example
+.PHONY : loader_example
+
+# fast build rule for target.
+loader_example/fast:
+	$(MAKE) $(MAKESILENT) -f external\tinygltf-2.9.3\CMakeFiles\loader_example.dir\build.make external/tinygltf-2.9.3/CMakeFiles/loader_example.dir/build
+.PHONY : loader_example/fast
+
+#=============================================================================
+# Target rules for targets named tinygltf
+
+# Build rule for target.
+tinygltf: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tinygltf
+.PHONY : tinygltf
+
+# fast build rule for target.
+tinygltf/fast:
+	$(MAKE) $(MAKESILENT) -f external\tinygltf-2.9.3\CMakeFiles\tinygltf.dir\build.make external/tinygltf-2.9.3/CMakeFiles/tinygltf.dir/build
+.PHONY : tinygltf/fast
+
 source/core/model_loader.obj: source/core/model_loader.cpp.obj
 .PHONY : source/core/model_loader.obj
 
@@ -335,29 +361,29 @@ source/platform/app.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine-3d.dir\build.make CMakeFiles/engine-3d.dir/source/platform/app.cpp.s
 .PHONY : source/platform/app.cpp.s
 
-source/platform/process_input.obj: source/platform/process_input.cpp.obj
-.PHONY : source/platform/process_input.obj
+source/platform/process_keys.obj: source/platform/process_keys.cpp.obj
+.PHONY : source/platform/process_keys.obj
 
 # target to build an object file
-source/platform/process_input.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine-3d.dir\build.make CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj
-.PHONY : source/platform/process_input.cpp.obj
+source/platform/process_keys.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine-3d.dir\build.make CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj
+.PHONY : source/platform/process_keys.cpp.obj
 
-source/platform/process_input.i: source/platform/process_input.cpp.i
-.PHONY : source/platform/process_input.i
+source/platform/process_keys.i: source/platform/process_keys.cpp.i
+.PHONY : source/platform/process_keys.i
 
 # target to preprocess a source file
-source/platform/process_input.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine-3d.dir\build.make CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.i
-.PHONY : source/platform/process_input.cpp.i
+source/platform/process_keys.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine-3d.dir\build.make CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.i
+.PHONY : source/platform/process_keys.cpp.i
 
-source/platform/process_input.s: source/platform/process_input.cpp.s
-.PHONY : source/platform/process_input.s
+source/platform/process_keys.s: source/platform/process_keys.cpp.s
+.PHONY : source/platform/process_keys.s
 
 # target to generate assembly for a file
-source/platform/process_input.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine-3d.dir\build.make CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.s
-.PHONY : source/platform/process_input.cpp.s
+source/platform/process_keys.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine-3d.dir\build.make CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.s
+.PHONY : source/platform/process_keys.cpp.s
 
 # Help Target
 help:
@@ -376,7 +402,9 @@ help:
 	@echo ... engine-3d
 	@echo ... glad
 	@echo ... glfw
+	@echo ... loader_example
 	@echo ... stb_image
+	@echo ... tinygltf
 	@echo ... source/core/model_loader.obj
 	@echo ... source/core/model_loader.i
 	@echo ... source/core/model_loader.s
@@ -389,9 +417,9 @@ help:
 	@echo ... source/platform/app.obj
 	@echo ... source/platform/app.i
 	@echo ... source/platform/app.s
-	@echo ... source/platform/process_input.obj
-	@echo ... source/platform/process_input.i
-	@echo ... source/platform/process_input.s
+	@echo ... source/platform/process_keys.obj
+	@echo ... source/platform/process_keys.i
+	@echo ... source/platform/process_keys.s
 .PHONY : help
 
 

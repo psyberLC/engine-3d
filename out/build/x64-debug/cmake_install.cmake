@@ -43,6 +43,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/glfw-3.4/cmake_install.cmake")
   include("C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/glm/cmake_install.cmake")
   include("C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/stb_image/cmake_install.cmake")
+  include("C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug/external/tinygltf-2.9.3/cmake_install.cmake")
 
 endif()
 

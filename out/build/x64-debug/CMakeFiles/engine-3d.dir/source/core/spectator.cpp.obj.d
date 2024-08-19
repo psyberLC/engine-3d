@@ -349,4 +349,12 @@ CMakeFiles/engine-3d.dir/source/core/spectator.cpp.obj: \
  C:/msys64/ucrt64/include/c++/13.2.0/cstring \
  C:/msys64/ucrt64/include/string.h \
  C:/msys64/ucrt64/include/sec_api/string_s.h \
- C:/Users/sesa768246/to_github/engine-3d/external/glm/gtc/type_ptr.inl
+ C:/Users/sesa768246/to_github/engine-3d/external/glm/gtc/type_ptr.inl \
+ C:/Users/sesa768246/to_github/engine-3d/source/core/include/shader_loader.h \
+ C:/msys64/ucrt64/include/c++/13.2.0/fstream \
+ C:/msys64/ucrt64/include/c++/13.2.0/bits/codecvt.h \
+ C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++io.h \
+ C:/msys64/ucrt64/include/c++/13.2.0/bits/fstream.tcc \
+ C:/msys64/ucrt64/include/c++/13.2.0/sstream \
+ C:/msys64/ucrt64/include/c++/13.2.0/bits/sstream.tcc

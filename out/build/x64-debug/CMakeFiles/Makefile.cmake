@@ -52,6 +52,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Users/sesa768246/to_github/engine-3d/external/glfw-3.4/src/CMakeLists.txt"
   "C:/Users/sesa768246/to_github/engine-3d/external/glm/CMakeLists.txt"
   "C:/Users/sesa768246/to_github/engine-3d/external/stb_image/CMakeLists.txt"
+  "C:/Users/sesa768246/to_github/engine-3d/external/tinygltf-2.9.3/CMakeLists.txt"
+  "C:/Users/sesa768246/to_github/engine-3d/external/tinygltf-2.9.3/cmake/TinyGLTFConfig.cmake.in"
   "CMakeFiles/3.30.0/CMakeCCompiler.cmake"
   "CMakeFiles/3.30.0/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.30.0/CMakeRCCompiler.cmake"
@@ -79,6 +81,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "external/glfw-3.4/docs/CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/glm/CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/stb_image/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "external/tinygltf-2.9.3/TinyGLTFConfig.cmake"
+  "external/tinygltf-2.9.3/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -89,4 +93,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "external/glfw-3.4/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   "external/glfw-3.4/src/CMakeFiles/update_mappings.dir/DependInfo.cmake"
   "external/stb_image/CMakeFiles/stb_image.dir/DependInfo.cmake"
+  "external/tinygltf-2.9.3/CMakeFiles/loader_example.dir/DependInfo.cmake"
+  "external/tinygltf-2.9.3/CMakeFiles/tinygltf.dir/DependInfo.cmake"
   )

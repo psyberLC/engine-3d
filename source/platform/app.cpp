@@ -169,7 +169,7 @@ int main()
 
 	for(unsigned int i = 0; i < 6; i++)
 	{
-		unsigned char* data = stbi_load("C:/Users/sesa768246/to_github/engine-3d/resources/textures/cubemap.png", &width, &height, &nrChannels, 0);
+		unsigned char* data = stbi_load("../../../resources/textures/cubemap.png", &width, &height, &nrChannels, 0);
 		if(data) 
 		{
 			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -191,8 +191,8 @@ int main()
 
 #pragma region shaders
 
-	Shader shaders("C:/Users/sesa768246/to_github/engine-3d/resources/shaders/vertexShader.vert",
-				   "C:/Users/sesa768246/to_github/engine-3d/resources/shaders/fragmentShader.frag");
+	Shader shaders("../../../resources/shaders/vertexShader.vert",
+				   "../../../resources/shaders/fragmentShader.frag");
 
 #pragma endregion
 
@@ -213,7 +213,7 @@ int main()
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
-		processInput(window, spectator.cameraPosition, spectator.cameraFront, spectator.cameraUp, speed, deltaTime);
+		processKeys(window, spectator.cameraPosition, spectator.cameraFront, spectator.cameraUp, speed, deltaTime);
 
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -225,18 +225,13 @@ int main()
 		glm::mat4 view = glm::mat4(1.0f);
 		glm::mat4 projection = glm::mat4(1.0f);
 
-		view = glm::lookAt(spectator.cameraPosition, spectator.cameraPosition + spectator.cameraFront, spectator.cameraUp);
-		projection = glm::perspective(glm::radians(spectator.fov), APP_WIDTH / APP_HEIGHT, 0.1f, 100.0f);
+        view = glm::lookAt(spectator.cameraPosition, spectator.cameraPosition + spectator.cameraFront, spectator.cameraUp);
+        projection = glm::perspective(glm::radians(spectator.fov), APP_WIDTH / APP_HEIGHT, 0.1f, 100.0f);
 
-		unsigned int modelLocation = glGetUniformLocation(shaders.ID, "model");
-		unsigned int viewLocation = glGetUniformLocation(shaders.ID, "view");
-		unsigned int projectionLocation = glGetUniformLocation(shaders.ID, "projection");
-		unsigned int timeLocation = glGetUniformLocation(shaders.ID, "Time");
-
-		glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
-		glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(view));
-		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(projection));
-		glUniform1f(timeLocation, (float)glfwGetTime());
+        shaders.setMat4("view", view);
+        shaders.setMat4("projection", projection);
+        shaders.setMat4("model", model);
+        shaders.setFloat("time", (float)glfwGetTime());
 
 		shaders.use();
 		glBindVertexArray(VAO);

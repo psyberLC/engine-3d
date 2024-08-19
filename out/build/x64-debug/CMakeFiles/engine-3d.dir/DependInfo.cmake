@@ -12,7 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/sesa768246/to_github/engine-3d/source/core/shader_loader.cpp" "CMakeFiles/engine-3d.dir/source/core/shader_loader.cpp.obj" "gcc" "CMakeFiles/engine-3d.dir/source/core/shader_loader.cpp.obj.d"
   "C:/Users/sesa768246/to_github/engine-3d/source/core/spectator.cpp" "CMakeFiles/engine-3d.dir/source/core/spectator.cpp.obj" "gcc" "CMakeFiles/engine-3d.dir/source/core/spectator.cpp.obj.d"
   "C:/Users/sesa768246/to_github/engine-3d/source/platform/app.cpp" "CMakeFiles/engine-3d.dir/source/platform/app.cpp.obj" "gcc" "CMakeFiles/engine-3d.dir/source/platform/app.cpp.obj.d"
-  "C:/Users/sesa768246/to_github/engine-3d/source/platform/process_input.cpp" "CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj" "gcc" "CMakeFiles/engine-3d.dir/source/platform/process_input.cpp.obj.d"
+  "C:/Users/sesa768246/to_github/engine-3d/source/platform/process_keys.cpp" "CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj" "gcc" "CMakeFiles/engine-3d.dir/source/platform/process_keys.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

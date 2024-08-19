@@ -365,5 +365,5 @@ CMakeFiles/engine-3d.dir/source/platform/app.cpp.obj: \
  C:/msys64/ucrt64/include/c++/13.2.0/sstream \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/sstream.tcc \
  C:/Users/sesa768246/to_github/engine-3d/source/core/include/model_loader.h \
- C:/Users/sesa768246/to_github/engine-3d/source/platform/include/process_input.h \
+ C:/Users/sesa768246/to_github/engine-3d/source/platform/include/process_keys.h \
  C:/Users/sesa768246/to_github/engine-3d/source/core/include/spectator.h
