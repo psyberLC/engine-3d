@@ -3,20 +3,20 @@
 Spectator::Spectator() 
 { 
 
-    Spectator::yaw = -90.0f;
-    Spectator::pitch = 0.0f;
-    Spectator::fov = 75.0f;
-    Spectator::sensitivity = 0.5f;
+    yaw = -90.0f;
+    pitch = 0.0f;
+    fov = 75.0f;
+    sensitivity = 0.5f;
 
-    Spectator::width = 800;
-    Spectator::height = 600;
+    width = 800;
+    height = 600;
 
-    Spectator::lastX = static_cast<float>(Spectator::width / 2.0f);
-    Spectator::lastY = static_cast<float>(Spectator::height / 2.0f);
+    lastX = static_cast<float>(width / 2.0f);
+    lastY = static_cast<float>(height / 2.0f);
 
-    Spectator::cameraPosition = glm::vec3(0.0f, 0.0f, 3.0f);
-    Spectator::cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-    Spectator::cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+    cameraPosition = glm::vec3(500.0f, 2.0f, 500.0f);
+    cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+    cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 }
 
@@ -25,20 +25,20 @@ Spectator::Spectator(float yaw, float pitch, float fov, float sensitivity,
                      glm::vec3 cameraFront, glm::vec3 cameraUp) 
 {
 
-    Spectator::yaw = yaw;
-    Spectator::pitch = pitch;
-    Spectator::fov = fov;
-    Spectator::sensitivity = sensitivity;
+    yaw = yaw;
+    pitch = pitch;
+    fov = fov;
+    sensitivity = sensitivity;
 
-    Spectator::width = width;
-    Spectator::height = height;
+    width = width;
+    height = height;
 
-    Spectator::lastX = static_cast<float>(Spectator::width / 2.0f);
-    Spectator::lastY = static_cast<float>(Spectator::height / 2.0f);
+    lastX = static_cast<float>(width / 2.0f);
+    lastY = static_cast<float>(height / 2.0f);
 
-    Spectator::cameraPosition = cameraPosition;
-    Spectator::cameraFront = cameraFront;
-    Spectator::cameraUp = cameraUp;
+    cameraPosition = cameraPosition;
+    cameraFront = cameraFront;
+    cameraUp = cameraUp;
 
 }
 
@@ -63,13 +63,13 @@ void Spectator::processCursor(double xposIn, double yposIn)
     yaw += xoffset;
     pitch += yoffset;
 
-    pitchCorrection(pitch);
+    pitchCorrection();
 
     frontCalculation();
 
 }
 
-void Spectator::pitchCorrection(float& pitch)
+void Spectator::pitchCorrection()
 {
     if (pitch > 89.0f)
         pitch = 89.0f;

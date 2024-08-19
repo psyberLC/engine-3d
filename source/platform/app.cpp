@@ -221,17 +221,14 @@ int main()
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
 
-		glm::mat4 model = glm::mat4(1.0f);
 		glm::mat4 view = glm::mat4(1.0f);
 		glm::mat4 projection = glm::mat4(1.0f);
 
         view = glm::lookAt(spectator.cameraPosition, spectator.cameraPosition + spectator.cameraFront, spectator.cameraUp);
-        projection = glm::perspective(glm::radians(spectator.fov), APP_WIDTH / APP_HEIGHT, 0.1f, 100.0f);
+        projection = glm::perspective(glm::radians(spectator.fov), APP_WIDTH / APP_HEIGHT, 1.0f, 10000.0f);
 
         shaders.setMat4("view", view);
         shaders.setMat4("projection", projection);
-        shaders.setMat4("model", model);
-        shaders.setFloat("time", (float)glfwGetTime());
 
 		shaders.use();
 		glBindVertexArray(VAO);

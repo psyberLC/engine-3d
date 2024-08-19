@@ -6,7 +6,6 @@ layout (location = 2) in mat4 cubeOffset;
 out vec3 TexCoord;
 out vec3 vertexColor;
 
-uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 

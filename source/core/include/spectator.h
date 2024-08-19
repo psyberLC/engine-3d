@@ -40,7 +40,7 @@ class Spectator
 
         bool firstTimeMouseEvent = true;
 
-        void pitchCorrection(float& pitch);
+        void pitchCorrection();
         void frontCalculation();
 
 };

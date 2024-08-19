@@ -8,9 +8,9 @@ void processKeys(GLFWwindow *window, glm::vec3& cameraPosition, glm::vec3& camer
         glfwSetWindowShouldClose(window, true);
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        cameraPosition += cameraSpeed * cameraFront;
+        cameraPosition += cameraSpeed * glm::normalize(glm::vec3(cameraFront.x, 0.0, cameraFront.z));
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        cameraPosition -= cameraSpeed * cameraFront;
+        cameraPosition -= cameraSpeed * glm::normalize(glm::vec3(cameraFront.x, 0.0, cameraFront.z));
 
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
         cameraPosition -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
