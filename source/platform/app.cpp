@@ -148,7 +148,7 @@ int main()
 	glEnableVertexAttribArray(5);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glVertexAttribDivisor(2, 1);
+    	glVertexAttribDivisor(2, 1);
 	glVertexAttribDivisor(3, 1);
 	glVertexAttribDivisor(4, 1);
 	glVertexAttribDivisor(5, 1);
@@ -181,7 +181,7 @@ int main()
 		stbi_image_free(data);
 	}
 
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -192,7 +192,7 @@ int main()
 #pragma region shaders
 
 	Shader shaders("../../../resources/shaders/vertexShader.vert",
-				   "../../../resources/shaders/fragmentShader.frag");
+		       "../../../resources/shaders/fragmentShader.frag");
 
 #pragma endregion
 
