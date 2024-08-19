@@ -3,16 +3,16 @@
 const float APP_WIDTH = 800.0;
 const float APP_HEIGHT = 600.0;
 
-static float deltaTime = 0.0f;
-static float lastFrame = 0.0f;
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
 
 float speed = 10.0f;
+
+Spectator spectator;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
-
-Spectator spectator;
 
 int main()
 {

@@ -1,6 +1,8 @@
 #ifndef SPECTATOR_H
 #define SPECTATOR_H
 
+#include <iostream>
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -11,15 +13,15 @@ class Spectator
 {
     public:
 
-        float yaw;
+        double yaw;
         float pitch;
         float fov;
         float sensitivity;
 
         unsigned int width;
         unsigned int height;
-        unsigned int lastX;
-        unsigned int lastY;
+        float lastX;
+        float lastY;
 
         glm::vec3 cameraPosition;
         glm::vec3 cameraFront;
@@ -33,6 +35,10 @@ class Spectator
         void processCursor(double xposIn, double yposIn);
 
     private:
+
         bool firstTimeMouseEvent = true;
+
+        void pitchCorrection(float& pitch);
+        void frontCalculation();
 };
 #endif

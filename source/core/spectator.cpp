@@ -44,35 +44,44 @@ Spectator::Spectator(float yaw, float pitch, float fov, float sensitivity,
 
 void Spectator::processCursor(double xposIn, double yposIn)
 {
-    float xpos = static_cast<float>(xposIn);
-    float ypos = static_cast<float>(yposIn);
 
     if (firstTimeMouseEvent)
     {
-        Spectator::lastX = xpos;
-        Spectator::lastY = ypos;
-        Spectator::firstTimeMouseEvent = false;
+        lastX = xposIn;
+        lastY = yposIn;
+        firstTimeMouseEvent = false;
     }
 
-    float xoffset = xpos - Spectator::lastX;
-    float yoffset = Spectator::lastY - ypos;
-    Spectator::lastX = xpos;
-    Spectator::lastY = ypos;
+    double xoffset = xposIn - lastX;
+    double yoffset = lastY - yposIn;
+    lastX = xposIn;
+    lastY = yposIn;
 
-    xoffset *= Spectator::sensitivity;
-    yoffset *= Spectator::sensitivity;
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
 
-    Spectator::yaw += xoffset;
-    Spectator::pitch += yoffset;
+    yaw += xoffset;
+    pitch += yoffset;
 
-    if (Spectator::pitch > 89.0f)
-        Spectator::pitch = 89.0f;
-    if (Spectator::pitch < -89.0f)
-        Spectator::pitch = -89.0f;
+    pitchCorrection(pitch);
 
+    frontCalculation();
+
+}
+
+void Spectator::pitchCorrection(float& pitch)
+{
+    if (pitch > 89.0f)
+        pitch = 89.0f;
+    if (pitch < -89.0f)
+        pitch = -89.0f;
+}
+
+void Spectator::frontCalculation()
+{
     glm::vec3 front;
-    front.x = cos(glm::radians(Spectator::yaw)) * cos(glm::radians(Spectator::pitch));
-    front.y = sin(glm::radians(Spectator::pitch));
-    front.z = sin(glm::radians(Spectator::yaw)) * cos(glm::radians(Spectator::pitch));
-    Spectator::cameraFront = glm::normalize(front);
+    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.y = sin(glm::radians(pitch));
+    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    cameraFront = glm::normalize(front);
 }
