@@ -1,0 +1,240 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						5,
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "external/glad",
+					"jsonFile" : "directory-external.glad-Debug-fe552af5a86a4942293e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "external/glad",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "external/glfw-3.4",
+					"childIndexes" : 
+					[
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.glfw-3.4-Debug-531de08dab201fe5a587.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "external/glfw-3.4",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "external/glfw-3.4/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.glfw-3.4.src-Debug-450cae8233f60975f53f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "external/glfw-3.4/src",
+					"targetIndexes" : 
+					[
+						2,
+						5
+					]
+				},
+				{
+					"build" : "external/glfw-3.4/docs",
+					"jsonFile" : "directory-external.glfw-3.4.docs-Debug-a526dc67c13298cb0bc7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "external/glfw-3.4/docs"
+				},
+				{
+					"build" : "external/glm",
+					"jsonFile" : "directory-external.glm-Debug-c35beecffdababf19b76.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "external/glm"
+				},
+				{
+					"build" : "external/stb_image",
+					"jsonFile" : "directory-external.stb_image-Debug-22e4301351593e9d71bc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "external/stb_image",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						5
+					],
+					"name" : "engine-3d",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "glad",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3,
+						4
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6
+					],
+					"name" : "stb_image",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "engine-3d::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-engine-3d-Debug-335cd10964cde2d1c11a.json",
+					"name" : "engine-3d",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "glad::@55512df44c152ef9a2ca",
+					"jsonFile" : "target-glad-Debug-ae6811ed0ae4a491cc0b.json",
+					"name" : "glad",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "glfw::@d2ad0d204de8827945e5",
+					"jsonFile" : "target-glfw-Debug-d3ad29a7d5cce529b1ed.json",
+					"name" : "glfw",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "stb_image::@4945d4a35979c2c9c488",
+					"jsonFile" : "target-stb_image-Debug-24da7718d09bdff22350.json",
+					"name" : "stb_image",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "uninstall::@269f5e0abf7fd9407b0c",
+					"jsonFile" : "target-uninstall-Debug-b94a9f3c92c4f18ba63b.json",
+					"name" : "uninstall",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "update_mappings::@d2ad0d204de8827945e5",
+					"jsonFile" : "target-update_mappings-Debug-50ebef3536e90e72a3d9.json",
+					"name" : "update_mappings",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/sesa768246/to_github/engine-3d/out/build/x64-debug",
+		"source" : "C:/Users/sesa768246/to_github/engine-3d"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

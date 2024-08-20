@@ -10,10 +10,9 @@ add_subdirectory("external/glad")
 add_subdirectory("external/glfw-3.4")
 add_subdirectory("external/glm")
 add_subdirectory("external/stb_image")
-add_subdirectory("external/tinygltf-2.9.3")
 
 target_include_directories(engine-3d PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/source/core/include/")
 target_include_directories(engine-3d PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/source/platform/include/")
 target_include_directories(engine-3d PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/external/")
 
-target_link_libraries(engine-3d PRIVATE glm glfw glad stb_image tinygltf)
+target_link_libraries(engine-3d PRIVATE glm glfw glad stb_image)
