@@ -3,20 +3,20 @@
 Spectator::Spectator() 
 { 
 
-    yaw = -90.0f;
-    pitch = 0.0f;
-    fov = 75.0f;
-    sensitivity = 0.5f;
+    this->yaw = -90.0f;
+    this->pitch = 0.0f;
+    this->fov = 75.0f;
+    this->sensitivity = 0.5f;
 
-    width = 800;
-    height = 600;
+    this->width = 800;
+    this->height = 600;
 
-    lastX = static_cast<float>(width / 2.0f);
-    lastY = static_cast<float>(height / 2.0f);
+    this->lastX = static_cast<float>(width / 2.0f);
+    this->lastY = static_cast<float>(height / 2.0f);
 
-    cameraPosition = glm::vec3(500.0f, 2.0f, 500.0f);
-    cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-    cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+    this->cameraPosition = glm::vec3(50.0f, 2.0f, 50.0f);
+    this->cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+    this->cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 }
 
@@ -25,20 +25,20 @@ Spectator::Spectator(float yaw, float pitch, float fov, float sensitivity,
                      glm::vec3 cameraFront, glm::vec3 cameraUp) 
 {
 
-    yaw = yaw;
-    pitch = pitch;
-    fov = fov;
-    sensitivity = sensitivity;
+    this->yaw = yaw;
+    this->pitch = pitch;
+    this->fov = fov;
+    this->sensitivity = sensitivity;
 
-    width = width;
-    height = height;
+    this->width = width;
+    this->height = height;
 
-    lastX = static_cast<float>(width / 2.0f);
-    lastY = static_cast<float>(height / 2.0f);
+    this->lastX = static_cast<float>(width / 2.0f);
+    this->lastY = static_cast<float>(height / 2.0f);
 
-    cameraPosition = cameraPosition;
-    cameraFront = cameraFront;
-    cameraUp = cameraUp;
+    this->cameraPosition = cameraPosition;
+    this->cameraFront = cameraFront;
+    this->cameraUp = cameraUp;
 
 }
 

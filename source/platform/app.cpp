@@ -87,7 +87,7 @@ int main()
 
     std::vector<unsigned int> cubePositions;
 
-    for (unsigned int i = 0; i < 1000000; i++)
+    for (unsigned int i = 0; i < 10000; i++)
     {
         cubePositions.push_back(1);
     }
@@ -97,7 +97,7 @@ int main()
     float cubeZ = 0.0f;
     unsigned int i = 0;
     unsigned int j = 0;
-    unsigned int rowEnd = 1000;
+    unsigned int rowEnd = 100;
     while (i < cubePositions.size())
     {
         while (j < rowEnd)
@@ -110,7 +110,7 @@ int main()
         }
         cubeX = 0.0f;
         cubeZ += 1.0f;
-        rowEnd += 1000;
+        rowEnd += 100;
         i++;
     }
 
@@ -236,7 +236,7 @@ int main()
 
         shaders.use();
         glBindVertexArray(VAO);
-        glDrawElementsInstanced(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0, 1000000);
+        glDrawElementsInstanced(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0, 10000);
         glBindVertexArray(0);
 
         glfwSwapBuffers(window);
