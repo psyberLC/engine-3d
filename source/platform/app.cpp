@@ -1,10 +1,7 @@
 #include <app.h>
-#include <memory>
 
-
-
-const float APP_WIDTH = 1280.0;
-const float APP_HEIGHT = 800.0;
+const float APP_WIDTH = 800.0;
+const float APP_HEIGHT = 600.0;
 
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
@@ -41,8 +38,6 @@ int main()
         return -1;
     }
 
-    glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
-
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -53,156 +48,17 @@ int main()
     // Setup Platform/Renderer backends
     ImGui_ImplGlfw_InitForOpenGL(window, true);          // Second param install_callback=true will install GLFW callbacks and chain to existing ones.
     ImGui_ImplOpenGL3_Init();
-    
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
+
+    stbi_set_flip_vertically_on_load(true);
 
 #pragma endregion
 
 #pragma region objects
 
-    unsigned int indices[] = {
-        //Top
-        7, 6, 2,
-        2, 3, 7,
-
-        //Bottom
-        0, 4, 5,
-        5, 1, 0,
-
-        //Left
-        0, 2, 6,
-        6, 4, 0,
-
-        //Right
-        7, 3, 1,
-        1, 5, 7,
-
-        //Front
-        3, 2, 0,
-        0, 1, 3,
-
-        //Back
-        4, 6, 7,
-        7, 5, 4
-    };
-
-
-    float vertices[] = {
-        -0.5f, -0.5f,  0.5f, 1.0f, 0.0f, 0.0f, //0
-         0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f, //1
-        -0.5f,  0.5f,  0.5f, 0.0f, 0.0f, 1.0f, //2
-         0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 0.0f, //3
-        -0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 0.0f, //4
-         0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, //5
-        -0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 0.0f, //6
-         0.5f,  0.5f, -0.5f, 1.0f, 0.0f, 0.0f  //7
-    };
-
-    std::vector<unsigned int> cubePositions;
-
-    for (unsigned int i = 0; i < 10000; i++)
-    {
-        cubePositions.push_back(1);
-    }
-
-    std::vector<glm::mat4> cubeTranslations;
-    float cubeX = 0.0f;
-    float cubeZ = 0.0f;
-    unsigned int i = 0;
-    unsigned int j = 0;
-    unsigned int rowEnd = 100;
-    while (i < cubePositions.size())
-    {
-        while (j < rowEnd)
-        {
-            if (cubePositions[j])
-                cubeTranslations.push_back(glm::translate(glm::mat4(1.0f), glm::vec3(cubeX, 0.0f, cubeZ)));
-            cubeX += 1.0f;
-            i++;
-            j++;
-        }
-        cubeX = 0.0f;
-        cubeZ += 1.0f;
-        rowEnd += 100;
-        i++;
-    }
-
-#pragma endregion
-
-#pragma region VAO setup
-
-    unsigned int VBO, instanceVBO, VAO, EBO;
-
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &instanceVBO);
-    glGenBuffers(1, &EBO);
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0); // xyz
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float))); // color
-    glEnableVertexAttribArray(1);
-
-    glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
-    glBufferData(GL_ARRAY_BUFFER, cubeTranslations.size() * sizeof(glm::mat4), &(cubeTranslations[0]), GL_STATIC_DRAW);
-    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)0);
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(sizeof(glm::vec4)));
-    glEnableVertexAttribArray(3);
-    glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(2 * sizeof(glm::vec4)));
-    glEnableVertexAttribArray(4);
-    glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(3 * sizeof(glm::vec4)));
-    glEnableVertexAttribArray(5);
-
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glVertexAttribDivisor(2, 1);
-    glVertexAttribDivisor(3, 1);
-    glVertexAttribDivisor(4, 1);
-    glVertexAttribDivisor(5, 1);
-
-    glBindVertexArray(0);
-
-#pragma endregion
-
-#pragma region textures
-
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
-
-    stbi_set_flip_vertically_on_load(true);
-
-    int width, height, nrChannels;
-
-    for(unsigned int i = 0; i < 6; i++)
-    {
-        unsigned char* data = stbi_load("../../../resources/textures/cubemap.png", &width, &height, &nrChannels, 0);
-        if(data) 
-        {
-            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        }
-        else 
-        {
-            std::cout << "Failed to load texture\n";
-        }
-        stbi_image_free(data);
-    }
-
-    glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
-
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+    Model glados("../../../resources/models/glados/scene.gltf");
 
 #pragma endregion
 
@@ -231,7 +87,7 @@ int main()
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        ImGui::ShowDemoWindow();
+        // ImGui::ShowDemoWindow();
 
         float currentFrame = static_cast<float>(glfwGetTime());
         deltaTime = currentFrame - lastFrame;
@@ -242,37 +98,27 @@ int main()
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
-
+        glm::mat4 model = glm::mat4(1.0f);
         glm::mat4 view = glm::mat4(1.0f);
         glm::mat4 projection = glm::mat4(1.0f);
 
+        model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
         view = glm::lookAt(spectator.cameraPosition, spectator.cameraPosition + spectator.cameraFront, spectator.cameraUp);
         projection = glm::perspective(glm::radians(spectator.fov), APP_WIDTH / APP_HEIGHT, 0.1f, 10000.0f);
 
+        shaders.use();
+        shaders.setMat4("model", model);
         shaders.setMat4("view", view);
         shaders.setMat4("projection", projection);
 
-        shaders.use();
-        glBindVertexArray(VAO);
-        glDrawElementsInstanced(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0, 10000);
-        glBindVertexArray(0);
+        glados.drawModel(shaders);
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-
-#pragma endregion
-
-#pragma region cleaning
-
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &instanceVBO);
-    glDeleteBuffers(1, &EBO);
 
 #pragma endregion
 

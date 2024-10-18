@@ -14,8 +14,8 @@
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 
-#include <shader_loader.h>
-#include <model_loader.h>
+#include <shader.h>
+#include <model.h>
 #include <process_keys.h>
 #include <spectator.h>
 
