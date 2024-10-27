@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef PROCESS_KEYS_H
 #define PROCESS_KEYS_H
 

@@ -3,6 +3,8 @@ project (engine-3d)
 
 add_executable(engine-3d)
 
+set(CMAKE_BUILD_PARALLEL_LEVEL 8)
+
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
 target_sources(engine-3d PRIVATE ${MY_SOURCES})
 

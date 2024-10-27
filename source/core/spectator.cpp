@@ -3,13 +3,13 @@
 Spectator::Spectator() 
 { 
 
-    this->yaw = -90.0f;
+    this->yaw = 0.0f;
     this->pitch = 0.0f;
     this->fov = 75.0f;
     this->sensitivity = 0.5f;
 
-    this->width = 800;
-    this->height = 600;
+    this->width = 1280;
+    this->height = 800;
 
     this->lastX = static_cast<float>(width / 2.0f);
     this->lastY = static_cast<float>(height / 2.0f);
@@ -63,18 +63,27 @@ void Spectator::processCursor(double xposIn, double yposIn)
     yaw += xoffset;
     pitch += yoffset;
 
+    yawCorrection();
     pitchCorrection();
 
     frontCalculation();
 
 }
 
+void Spectator::yawCorrection()
+{
+    if (yaw > 360.0f)
+        yaw = 0.0f;
+    if (yaw < -360.0f)
+        yaw = 0.0f;
+}
+
 void Spectator::pitchCorrection()
 {
-    if (pitch > 89.0f)
-        pitch = 89.0f;
-    if (pitch < -89.0f)
-        pitch = -89.0f;
+    if (pitch > 89.9f)
+        pitch = 89.9f;
+    if (pitch < -89.9f)
+        pitch = -89.9f;
 }
 
 void Spectator::frontCalculation()

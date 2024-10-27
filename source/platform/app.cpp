@@ -1,7 +1,7 @@
 #include <app.h>
 
-const float APP_WIDTH = 800.0;
-const float APP_HEIGHT = 600.0;
+const float APP_WIDTH = 1280.0;
+const float APP_HEIGHT = 800.0;
 
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
@@ -16,8 +16,6 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
 
 int main()
 {
-
-#pragma region init
 
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -52,35 +50,27 @@ int main()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
 
-    stbi_set_flip_vertically_on_load(true);
-
-#pragma endregion
-
-#pragma region objects
+    // stbi_set_flip_vertically_on_load(true);
 
     Model glados("../../../resources/models/glados/scene.gltf");
 
-#pragma endregion
+    Cubemap skybox;
 
-#pragma region shaders
-
-    Shader shaders(
+    Shader model_shaders(
         "../../../resources/shaders/vertexShader.vert",
         "../../../resources/shaders/fragmentShader.frag"
     );
 
-#pragma endregion
-
-#pragma region opengl features
+    Shader skybox_shaders(
+        "../../../resources/shaders/skyboxVertexShader.vert",
+        "../../../resources/shaders/skyboxFragmentShader.frag"
+    );
+    skybox_shaders.setInt("skybox", 0);
 
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_CULL_FACE);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-#pragma endregion
-
-#pragma region main loop
 
     while (!glfwWindowShouldClose(window)) {
 
@@ -104,14 +94,22 @@ int main()
 
         model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
         view = glm::lookAt(spectator.cameraPosition, spectator.cameraPosition + spectator.cameraFront, spectator.cameraUp);
-        projection = glm::perspective(glm::radians(spectator.fov), APP_WIDTH / APP_HEIGHT, 0.1f, 10000.0f);
+        projection = glm::perspective(glm::radians(spectator.fov), APP_WIDTH / APP_HEIGHT, 0.1f, 1000.0f);
 
-        shaders.use();
-        shaders.setMat4("model", model);
-        shaders.setMat4("view", view);
-        shaders.setMat4("projection", projection);
+        model_shaders.use();
+        model_shaders.setMat4("model", model);
+        model_shaders.setMat4("view", view);
+        model_shaders.setMat4("projection", projection);
 
-        glados.drawModel(shaders);
+        glados.drawModel(model_shaders);
+
+        view = glm::mat4(glm::mat3(glm::lookAt(spectator.cameraPosition, spectator.cameraPosition + spectator.cameraFront, spectator.cameraUp)));
+
+        skybox_shaders.use();
+        skybox_shaders.setMat4("view", view);
+        skybox_shaders.setMat4("projection", projection);
+
+        skybox.drawCubemap();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -120,16 +118,12 @@ int main()
         glfwPollEvents();
     }
 
-#pragma endregion
-
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
     glfwTerminate();
     return 0;
 }
-
-#pragma region callbacks
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -140,5 +134,3 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 {
     spectator.processCursor(xposIn, yposIn);
 }
-
-#pragma endregion

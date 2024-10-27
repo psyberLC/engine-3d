@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef SPECTATOR_H
 #define SPECTATOR_H
 
@@ -8,8 +10,6 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
-
-#include <shader.h>
 
 class Spectator
 {
@@ -31,7 +31,7 @@ class Spectator
 
         Spectator();
         Spectator(float yaw, float pitch, float fov, float sensitivity,
-                  unsigned int width, unsigned int height, glm::vec3 cameraPosition, 
+                  unsigned int width, unsigned int height, glm::vec3 cameraPosition,
                   glm::vec3 cameraFront, glm::vec3 cameraUp);
 
         void processCursor(double xposIn, double yposIn);
@@ -40,6 +40,7 @@ class Spectator
 
         bool firstTimeMouseEvent = true;
 
+        void yawCorrection();
         void pitchCorrection();
         void frontCalculation();
 

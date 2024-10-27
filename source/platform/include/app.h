@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef APP_H
 #define APP_H
 
@@ -16,7 +18,8 @@
 
 #include <shader.h>
 #include <model.h>
-#include <process_keys.h>
+#include <cubemap.h>
 #include <spectator.h>
+#include <process_keys.h>
 
 #endif
